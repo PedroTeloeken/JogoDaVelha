@@ -14,7 +14,7 @@ for (let i = 0; boxes.length > i; i++) {
 
     boxes[i].addEventListener("click", function () {
 
-        
+
 
         let el = checkEl(player1, player2)
 
@@ -28,11 +28,11 @@ for (let i = 0; boxes.length > i; i++) {
             } else {
                 player2++;
             }
+            
             checkWinCondition();
         }
     });
 
-   
 }
 
 function checkEl(player1, player2) {
@@ -47,7 +47,7 @@ function checkEl(player1, player2) {
     return el;
 }
 
-function checkWinCondition(){
+function checkWinCondition() {
 
     let b1 = document.getElementById("block-1");
     let b2 = document.getElementById("block-2");
@@ -59,25 +59,92 @@ function checkWinCondition(){
     let b8 = document.getElementById("block-8");
     let b9 = document.getElementById("block-9");
 
-    console.log(b1);
-    console.log(b1.childNodes.length);
+    if (b1.childNodes.length == 1 && b2.childNodes.length == 1 && b3.childNodes.length == 1) {
 
-
-    if(b1.childNodes.length == 1 && b2.childNodes.length == 1 && b3.childNodes.length == 1){
-
+        //Horizontal
         let b1Child = b1.childNodes[0].className;
-        let b2Child = b1.childNodes[0].className;
-        let b3Child = b1.childNodes[0].className;
+        let b2Child = b2.childNodes[0].className;
+        let b3Child = b3.childNodes[0].className;
 
-        if(b1Child == "x" && b2Child == "x" && b3Child == "x"){
-            console.log("O x venceu");
-        }else if(b1Child == "o" && b2Child == "o" && b3Child == "o"){
-            console.log("O o venceu");
+        let b4Child = b4.childNodes[0].className;
+        let b5Child = b5.childNodes[0].className;
+        let b6Child = b6.childNodes[0].className;
+
+        
+        let b7Child = b7.childNodes[0].className;
+        let b8Child = b8.childNodes[0].className;
+        let b9Child = b9.childNodes[0].className;
+
+
+        
+        if (b1Child == "x" && b2Child == "x" && b3Child == "x") {
+            console.log("O x venceu b1,b2,b3");
+        } else if (b1Child == "o" && b2Child == "o" && b3Child == "o") {
+            console.log("O o venceu b1,b2,b3");
+        }
+
+        if (b4Child == "x" && b5Child == "x" && b6Child == "x") {
+            console.log("O x venceu b4,b5,b6");
+        } else if (b4Child == "o" && b5Child == "o" && b6Child == "o") {
+            console.log("O o venceu b4,b5,b6");
         }
 
 
-   }
+        if (b7Child == "x" && b8Child == "x" && b9Child == "x") {
+            console.log("O x venceu b7,b8,b8");
+        } else if (b7Child == "o" && b8Child == "o" && b9Child == "o") {
+            console.log("O o venceu b7,b8,b8");
+        }
+
+        //vertical
+        
+        if (b1Child == "x" && b4Child == "x" && b7Child == "x") {
+            console.log("O x venceu");
+        } else if (b1Child == "o" && b4Child == "o" && b7Child == "o") {
+            console.log("O o venceu ");
+        }
+
+        
+        if (b2Child == "x" && b5Child == "x" && b8Child == "x") {
+            console.log("O x venceu ");
+        } else if (b2Child == "o" && b5Child == "o" && b8Child == "o") {
+            console.log("O o venceu ");
+        }
 
 
+        if (b3Child == "x" && b6Child == "x" && b9Child == "x") {
+            console.log("O x venceu ");
+        } else if (b3Child == "o" && b6Child == "o" && b9Child == "o") {
+            console.log("O o venceu ");
+        }
 
+    }
+
+    //Diagonal
+
+    if (b1Child == "x" && b5Child == "x" && b9Child == "x") {
+        console.log("O x venceu ");
+    } else if (b1Child == "o" && b5Child == "o" && b9Child == "o") {
+        console.log("O o venceu ");
+    }
+
+    if (b3Child == "x" && b5Child == "x" && b7Child == "x") {
+        console.log("O x venceu ");
+    } else if (b3Child == "o" && b5Child == "o" && b7Child == "o") {
+        console.log("O o venceu ");
+    }
+
+    //Deu velha
+
+    let counter = 0;
+
+    for(let i = 0; i < boxes.length; i++){
+        if(boxes[i].childNodes[0] !=undefined){
+            counter++;
+        }
+
+        if(counter == 9){
+            console.log("Deu velha");
+        }
+    }
 }
