@@ -66,9 +66,9 @@ body{
 
 /* classe de esconder */
 
-/* .hide{
+ .hide{
     display: none !important;
-} */
+} 
 
 #scoreboard-container{
     font-weight: bold;
